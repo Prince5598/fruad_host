@@ -1,0 +1,16 @@
+
+# Still ignore typical Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Ignore CSV files
+*.csv
+
+# Ignore any model files except the chosen .pkl
+
+# Ignore temp notebooks or temp Python files
+tempCodeRunnerFile.py
+tempp.py
