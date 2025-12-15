@@ -3,7 +3,6 @@ services:
     name: fraud-ml
     env: python
     runtime: python
-    pythonVersion: 3.11
     rootDir: ML
     buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1
