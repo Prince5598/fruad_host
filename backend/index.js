@@ -16,7 +16,7 @@ const adminRoutes = require('./routes/adminRoute');
 
 require('dotenv').config();
 db.connect();
-app.use(cors({ origin: 'https://fruad-host-a24ng74u9-princepatel5598-7326s-projects.vercel.app', credentials: true,exposedHeaders: ['Authorization'], }));
+app.use(cors({ origin: 'https://fruad-host-692mra9tl-princepatel5598-7326s-projects.vercel.app', credentials: true,exposedHeaders: ['Authorization'], }));
 
 app.use(express.json());
 app.use(cookieParser());
