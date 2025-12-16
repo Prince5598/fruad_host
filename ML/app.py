@@ -20,17 +20,17 @@ def preprocess_predict():
         ).strftime('%d-%m-%Y %H:%M')
 
         row = {
-            'trans_date_trans_time': formatted_time,
-            'cc_num': data['ccNum'],
-            'trannsaction_type': data['transactionType'],
-            'amt': data['amount'],
-            'city': data['city'],
-            'lat': data['userLocation']['lat'],
-            'long': data['userLocation']['lon'],
-            'trans_num': data['transactionId'],
-            'merch_lat': data['merchantLocation']['lat'],
-            'merch_long': data['merchantLocation']['lon']
-        }
+    'trans_date_trans_time': formatted_time,
+    'cc_num': int(data['ccNum']),                     # cast
+    'trannsaction_type': str(data['transactionType']),
+    'amt': float(data['amount']),                     # 🔥 FIX
+    'city': str(data['city']),
+    'lat': float(data['userLocation']['lat']),
+    'long': float(data['userLocation']['lon']),
+    'trans_num': str(data['transactionId']),
+    'merch_lat': float(data['merchantLocation']['lat']),
+    'merch_long': float(data['merchantLocation']['lon'])
+}
 
         df = pd.DataFrame([row])
 
