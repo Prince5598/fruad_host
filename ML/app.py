@@ -14,7 +14,7 @@ def health():
 def preprocess_predict():
     try:
         data = request.get_json()
-
+        print(data)
         formatted_time = datetime.strptime(
             data['transactionTime'], '%Y-%m-%dT%H:%M'
         ).strftime('%d-%m-%Y %H:%M')
