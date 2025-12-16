@@ -47,12 +47,43 @@ def preprocessData(df):
     le_city = LabelEncoder()
     df['city_enc'] = le_city.fit_transform(df['city'])
 
+
+    # ================= HANDLE MISSING TRAINING FEATURES =================
+
+# No previous transaction available at inference
+    df['dist_prev_trans'] = 0.0
+
+    # No card history available → neutral defaults
+    df['avg_amt'] = df['amt']
+    df['std_amt'] = 0.0
+    df['trans_count'] = 1
+
+    # Amount deviation from average
+    df['amt_diff_avg'] = 0.0
+
+
     feature_order = [
-        'Unnamed: 0', 'amt', 'lat', 'long', 'merch_lat', 'merch_long',
-        'hour', 'day_of_week', 'day', 'month',
-        'time_diff_sec', 'dist_trans_merch',
-        'trans_type_enc', 'city_enc'
-    ]
+    'Unnamed: 0',
+    'amt',
+    'lat',
+    'long',
+    'merch_lat',
+    'merch_long',
+    'hour',
+    'day_of_week',
+    'day',
+    'month',
+    'time_diff_sec',
+    'dist_trans_merch',
+    'dist_prev_trans',
+    'avg_amt',
+    'std_amt',
+    'trans_count',
+    'amt_diff_avg',
+    'trans_type_enc',
+    'city_enc'
+]
+
 
     return df[feature_order]
 
